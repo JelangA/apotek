@@ -30,10 +30,12 @@ namespace Aplikasi_Apotek
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -48,8 +50,6 @@ namespace Aplikasi_Apotek
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -82,14 +82,25 @@ namespace Aplikasi_Apotek
             this.panel1.Size = new System.Drawing.Size(695, 461);
             this.panel1.TabIndex = 1;
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(273, 251);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 28);
+            this.button4.TabIndex = 8;
+            this.button4.Text = "kosongkan";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.CustomFormat = "dd/MMMM/yyyy";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker1.Location = new System.Drawing.Point(66, 195);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(138, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(144, 20);
             this.dateTimePicker1.TabIndex = 7;
+            this.dateTimePicker1.Value = new System.DateTime(2023, 4, 11, 0, 0, 0, 0);
             // 
             // button3
             // 
@@ -120,6 +131,13 @@ namespace Aplikasi_Apotek
             this.button1.Text = "Simpan";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(385, 195);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(66, 20);
+            this.textBox5.TabIndex = 5;
             // 
             // textBox6
             // 
@@ -243,23 +261,6 @@ namespace Aplikasi_Apotek
             this.label1.Size = new System.Drawing.Size(130, 28);
             this.label1.TabIndex = 0;
             this.label1.Text = "Kelola Obat";
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(385, 195);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(66, 20);
-            this.textBox5.TabIndex = 5;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(273, 251);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 28);
-            this.button4.TabIndex = 8;
-            this.button4.Text = "kosongkan";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // FObat
             // 

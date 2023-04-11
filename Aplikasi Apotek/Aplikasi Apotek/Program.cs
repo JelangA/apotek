@@ -16,7 +16,7 @@ namespace Aplikasi_Apotek
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FAdminNav());
+            Application.Run(new FAKasir());
         }
     }
 }

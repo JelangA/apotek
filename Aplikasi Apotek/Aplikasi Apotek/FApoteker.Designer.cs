@@ -33,8 +33,10 @@ namespace Aplikasi_Apotek
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -47,16 +49,16 @@ namespace Aplikasi_Apotek
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.button5 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -66,12 +68,14 @@ namespace Aplikasi_Apotek
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button5);
+            this.panel1.Controls.Add(this.dateTimePicker1);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.textBox6);
             this.panel1.Controls.Add(this.textBox7);
             this.panel1.Controls.Add(this.textBox5);
-            this.panel1.Controls.Add(this.textBox6);
             this.panel1.Controls.Add(this.textBox4);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.textBox3);
@@ -94,48 +98,69 @@ namespace Aplikasi_Apotek
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(240, 248);
+            this.button3.Location = new System.Drawing.Point(183, 248);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(102, 28);
+            this.button3.Size = new System.Drawing.Size(82, 28);
             this.button3.TabIndex = 6;
             this.button3.Text = "Hapus";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(132, 248);
+            this.button2.Location = new System.Drawing.Point(104, 248);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(102, 28);
+            this.button2.Size = new System.Drawing.Size(73, 28);
             this.button2.TabIndex = 6;
             this.button2.Text = "Edit";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(24, 248);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(102, 28);
+            this.button1.Size = new System.Drawing.Size(74, 28);
             this.button1.TabIndex = 6;
             this.button1.Text = "Simpan";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox6
+            // textBox7
             // 
-            this.textBox6.Location = new System.Drawing.Point(385, 136);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(199, 20);
-            this.textBox6.TabIndex = 5;
+            this.textBox7.Location = new System.Drawing.Point(474, 253);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(199, 20);
+            this.textBox7.TabIndex = 5;
+            this.textBox7.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(385, 195);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(199, 20);
+            this.textBox5.TabIndex = 5;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(385, 76);
+            this.textBox4.Location = new System.Drawing.Point(385, 136);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(199, 20);
             this.textBox4.TabIndex = 5;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Sitka Small", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(431, 252);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(37, 19);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "Cari";
+            // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(66, 198);
+            this.textBox3.Location = new System.Drawing.Point(385, 76);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(199, 20);
             this.textBox3.TabIndex = 5;
@@ -152,7 +177,7 @@ namespace Aplikasi_Apotek
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(66, 136);
+            this.textBox2.Location = new System.Drawing.Point(66, 195);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(199, 20);
             this.textBox2.TabIndex = 5;
@@ -181,6 +206,7 @@ namespace Aplikasi_Apotek
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(671, 145);
             this.dataGridView1.TabIndex = 4;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // label5
             // 
@@ -240,30 +266,6 @@ namespace Aplikasi_Apotek
             this.label1.TabIndex = 0;
             this.label1.Text = "Kelola Resep";
             // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(385, 198);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(199, 20);
-            this.textBox5.TabIndex = 5;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Sitka Small", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(431, 252);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(37, 19);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Cari";
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(474, 253);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(199, 20);
-            this.textBox7.TabIndex = 5;
-            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ControlDarkDark;
@@ -274,6 +276,16 @@ namespace Aplikasi_Apotek
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(190, 500);
             this.panel3.TabIndex = 3;
+            // 
+            // button4
+            // 
+            this.button4.Font = new System.Drawing.Font("Sitka Small", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(21, 414);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(133, 35);
+            this.button4.TabIndex = 2;
+            this.button4.Text = "LogOut";
+            this.button4.UseVisualStyleBackColor = true;
             // 
             // panel4
             // 
@@ -297,26 +309,16 @@ namespace Aplikasi_Apotek
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // button4
+            // label11
             // 
-            this.button4.Font = new System.Drawing.Font("Sitka Small", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(21, 414);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(133, 35);
-            this.button4.TabIndex = 2;
-            this.button4.Text = "LogOut";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Sitka Small", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label9.Location = new System.Drawing.Point(23, 41);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(131, 35);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "Apoteker";
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Sitka Small", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label11.Location = new System.Drawing.Point(23, 339);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(90, 35);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Resep";
             // 
             // label10
             // 
@@ -329,25 +331,52 @@ namespace Aplikasi_Apotek
             this.label10.TabIndex = 0;
             this.label10.Text = "Kelola";
             // 
-            // label11
+            // label9
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Sitka Small", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label11.Location = new System.Drawing.Point(23, 339);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(90, 35);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "Resep";
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Sitka Small", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label9.Location = new System.Drawing.Point(23, 41);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(131, 35);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Apoteker";
             // 
-            // FResep
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Sitka Small", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(65, 136);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(157, 20);
+            this.dateTimePicker1.TabIndex = 7;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(545, 17);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(113, 20);
+            this.textBox6.TabIndex = 5;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(270, 248);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(78, 28);
+            this.button5.TabIndex = 8;
+            this.button5.Text = "Kosongkan";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // FApoteker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(890, 500);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
-            this.Name = "FResep";
+            this.Name = "FApoteker";
             this.Text = "FResep";
             this.Load += new System.EventHandler(this.FResep_Load);
             this.panel1.ResumeLayout(false);
@@ -367,7 +396,7 @@ namespace Aplikasi_Apotek
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label8;
@@ -382,7 +411,6 @@ namespace Aplikasi_Apotek
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
@@ -391,5 +419,8 @@ namespace Aplikasi_Apotek
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Button button5;
     }
 }

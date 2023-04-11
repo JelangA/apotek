@@ -74,7 +74,7 @@ namespace Aplikasi_Apotek
                     cmd = new MySqlCommand("INSERT INTO `tbl_obat`(`kode_obat`, `nama_obat`, `expired_date`, `jumlah`, `harga`) VALUES ('" +
                         textBox1.Text + "','" +
                         textBox2.Text + "','" +
-                        dateTimePicker1.Value.ToString() + "','" +
+                        dateTimePicker1.Value.ToString("dd/MM/yyyy") + "','" +
                         textBox3.Text + "','" +
                         textBox4.Text + "')", conn);
                     cmd.ExecuteNonQuery();
@@ -109,9 +109,9 @@ namespace Aplikasi_Apotek
                     cmd = new MySqlCommand("update `tbl_obat` set kode_obat='" +
                         textBox1.Text + "',nama_obat='" +
                         textBox2.Text + "',expired_date='" +
-                        dateTimePicker1.Value.ToString() + "',jumlah='" +
+                        dateTimePicker1.Value.ToString("dd/MM/yyyy") + "',jumlah='" +
                         textBox3.Text + "',harga='" +
-                        textBox4.Text + "' where id_user='" + textBox5.Text + "'", conn);
+                        textBox4.Text + "' where id_obat='" + textBox5.Text + "'", conn);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Data Berhasil Di Simpan");
                     bersih();

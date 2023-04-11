@@ -33,6 +33,8 @@ namespace Aplikasi_Apotek
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.chartOmset = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -41,16 +43,14 @@ namespace Aplikasi_Apotek
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartOmset)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.chart1);
+            this.panel1.Controls.Add(this.chartOmset);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.comboBox2);
@@ -65,6 +65,32 @@ namespace Aplikasi_Apotek
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(695, 461);
             this.panel1.TabIndex = 2;
+            // 
+            // chartOmset
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chartOmset.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartOmset.Legends.Add(legend1);
+            this.chartOmset.Location = new System.Drawing.Point(47, 271);
+            this.chartOmset.Name = "chartOmset";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Omset";
+            this.chartOmset.Series.Add(series1);
+            this.chartOmset.Size = new System.Drawing.Size(483, 178);
+            this.chartOmset.TabIndex = 7;
+            this.chartOmset.Text = "chart1";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(564, 355);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "Generate";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -139,31 +165,6 @@ namespace Aplikasi_Apotek
             this.label1.TabIndex = 0;
             this.label1.Text = "Kelola Laporan";
             // 
-            // chart1
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(47, 271);
-            this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(443, 178);
-            this.chart1.TabIndex = 7;
-            this.chart1.Text = "chart1";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(564, 355);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Generate";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // FReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -172,10 +173,11 @@ namespace Aplikasi_Apotek
             this.Controls.Add(this.panel1);
             this.Name = "FReport";
             this.Text = "FReport";
+            this.Load += new System.EventHandler(this.FReport_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartOmset)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -191,7 +193,7 @@ namespace Aplikasi_Apotek
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartOmset;
         private System.Windows.Forms.Button button2;
     }
 }
