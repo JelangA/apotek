@@ -72,7 +72,7 @@ namespace Aplikasi_Apotek
                 rd = cmd.ExecuteReader();
                 while (rd.Read())
                 {
-                    this.chartOmset.Series["omset"].Points.AddXY(rd.GetString("tgl_transaksi"), rd.GetInt64("total_bayar"));
+                    chartOmset.Series["omset"].Points.AddXY(rd.GetString("tgl_transaksi"), rd.GetInt64("total_bayar"));
                 }
                 
             }

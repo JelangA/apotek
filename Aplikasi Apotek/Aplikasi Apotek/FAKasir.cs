@@ -19,6 +19,64 @@ namespace Aplikasi_Apotek
         private MySqlDataReader rd;
         Koneksi koneksi = new Koneksi();
 
+        public int totalz;
+        public double totalhasil;
+
+        private string idUser;
+        private string namaUser;
+
+        private string Autoid()
+        {
+            try
+            {
+                MySqlConnection conn = koneksi.getKon();
+                conn.Open();
+                cmd = new MySqlCommand("select no_transaksi from tbl_ptransaksi order by no_transaksi desc", conn);
+                rd = cmd.ExecuteReader();
+                rd.Read();
+                if (rd.HasRows)
+                {
+                    string id = rd[0].ToString();
+                    string angka = id.Substring(4, 4);
+                    int num = Convert.ToInt32(angka) + 1;
+                    string result = num.ToString();
+                    if (result.Length == 1)
+                    {
+                        result = "000" + result;
+                    }
+                    else if (result.Length == 2)
+                    {
+                        result = "00" + result;
+                    }
+                    else if (result.Length == 3)
+                    {
+                        result = "0" + result;
+                    }
+                    else if (result.Length == 4)
+                    {
+                        result = "" + result;
+                    }
+
+                    string tanggal = DateTime.Now.ToString("ddMM");
+                    string result2 = tanggal + result;
+                    return result2;
+                }
+                else
+                {
+                    string result = "001";
+                    string tanggal = DateTime.Now.ToString("ddMM");
+                    string result2 = tanggal + result;
+                    return result2;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return "";
+        }
+
+
         public FAKasir()
         {
             InitializeComponent();
@@ -27,8 +85,44 @@ namespace Aplikasi_Apotek
         private void FAKasir_Load(object sender, EventArgs e)
         {
             bersih();
+            getNamaUser();
         }
 
+        void getNamaUser()
+        {
+            MySqlConnection conn = koneksi.getKon();
+            conn.Open();
+            try
+            {
+                cmd = new MySqlCommand("select id_user, nama_user from tbl_user where id_user ='" + FLogin.UserID + "'", conn);
+                rd = cmd.ExecuteReader();
+                while (rd.Read())
+                {
+                    idUser = rd[0].ToString();
+                    namaUser = rd[1].ToString();
+                }
+            }
+            catch (Exception x)
+            {
+                MessageBox.Show("Auto id gagal {{ " + x.Message + " }} ");
+            }
+        }
+        
+        //void gettotal()
+        //{
+        //    string input = textBox8.Text;
+        //    if (int.TryParse(input, out int value))
+        //    {
+        //        // nilai dari input berhasil dikonversi menjadi integer
+        //        string textBoxValue = textBox9.Text;
+        //        int intValue = Int32.Parse(textBoxValue);
+        //    }
+        //    else
+        //    {
+        //        // nilai dari input tidak dapat dikonversi menjadi integer
+        //        MessageBox.Show("gagal konversi");
+        //    }
+        //}
         void Tampildata()
         {
             MySqlConnection conn = koneksi.getKon();
@@ -64,7 +158,7 @@ namespace Aplikasi_Apotek
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (
+                if (
                 textBox1.Text != "Pilih Type"
                 || textBox2.Text.Length != 0
                 || textBox4.Text.Length != 0
@@ -73,12 +167,12 @@ namespace Aplikasi_Apotek
                 || textBox7.Text.Length != 0
                 || textBox8.Text.Length != 0
                 )
-            {
+                {
                 MySqlConnection conn = koneksi.getKon();
                 conn.Open();
                 try
                 {
-                    cmd = new MySqlCommand("insert into `tbl_ptransaksi`(`type_resep`, `no_resep`, `tgl_resep`, `nama_pasien`, `nama_dokter`, `nama_obat`, `harga`, `quantity`) values ('" +
+                    cmd = new MySqlCommand("insert into `tbl_ptransaksi`(`type_resep`, `no_resep`, `tgl_resep`, `nama_pasien`, `nama_dokter`, `nama_obat`, `harga`, `quantity`, `no_transaksi`) values ('" +
                         textBox1.Text + "','" +
                         textBox2.Text + "','" +
                         textBox3.Value.ToString("dd/MM/yyyy") + "','" +
@@ -86,21 +180,32 @@ namespace Aplikasi_Apotek
                         textBox5.Text + "','" +
                         textBox6.Text + "','" +
                         textBox7.Text + "','" +
-                        textBox8.Text + "')", conn);
+                        textBox8.Text + "','" +
+                        Autoid() + "')", conn);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Data Berhasil Di Simpan");
+                    if (totalhasil != 0)
+                    {
+                        totalz = (int)(totalhasil + (Convert.ToInt64(textBox7.Text) * Convert.ToInt64(textBox8.Text)));
+                    }
+                    else
+                    {
+                        totalz = (int)(Convert.ToInt64(textBox7.Text) * Convert.ToInt64(textBox8.Text));
+                    }
+                    labelTotal.Text = totalz.ToString();
+                    totalhasil = (int)(Convert.ToInt64(labelTotal.Text));
                     bersih();
+
                 }
                 catch (Exception x)
                 {
                     MessageBox.Show("Data Gagal Ditambahakan {{" + x.Message + "}}");
                 }
                 conn.Close();
-            }
-            else
-            {
+            }else{
                 MessageBox.Show("Mohon Lengkapi Data");
             }
+
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -119,6 +224,8 @@ namespace Aplikasi_Apotek
                     cmd = new MySqlCommand("delete from tbl_ptransaksi", conn);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Data Berhasil Di Hapus");
+                    labelKembali.Text = "";
+                    labelTotal.Text = "";
                     bersih();
                 }
                 catch (Exception x)
@@ -162,6 +269,45 @@ namespace Aplikasi_Apotek
             textBox6.Text = row.Cells[6].Value.ToString();
             textBox7.Text = row.Cells[7].Value.ToString();
             textBox8.Text = row.Cells[8].Value.ToString();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+        }
+        //INSERT INTO `tbl_transaksi`(`id_transaksi`, `no_transaksi`, `tgl_transaksi`, `nama_kasir`, `total_bayar`, `id_user`, `id_obat`, `id_resep`) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]','[value-7]','[value-8]')
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            MySqlConnection conn = koneksi.getKon();
+            conn.Open();
+            try
+            {
+                cmd = new MySqlCommand("INSERT INTO `tbl_transaksi`(`no_transaksi`, `tgl_transaksi`, `nama_kasir`, `total_bayar`, `id_user`) VALUES ( '" + 
+                   Autoid() + "','" + 
+                   DateTime.Now.ToString() + "','" +
+                   namaUser +"','" +
+                   totalz + "','" +
+                   idUser + "')", conn);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Data Berhasil Di Simpan");
+                bersih();
+            }
+            catch (Exception x)
+            {
+                MessageBox.Show("Data Gagal Ditambahakan {{" + x.Message + "}}");
+            }
+            conn.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(Autoid());
+        }
+
+        private void button6_Click_1(object sender, EventArgs e)
+        {
+            labelKembali.Text = (Convert.ToInt64(textBox9.Text) - totalz).ToString();
         }
     }
 }

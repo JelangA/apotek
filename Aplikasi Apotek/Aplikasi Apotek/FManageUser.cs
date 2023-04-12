@@ -102,8 +102,8 @@ namespace Aplikasi_Apotek
                     cmd = new MySqlCommand("insert into `tbl_user` (`type_user`, `nama_user`, `alamat`, `telpon`, `username`, `password`) values ('" +
                         comboBox1.Text + "','" +
                         textBox1.Text + "','" +
-                        textBox2.Text + "','" +
                         textBox3.Text + "','" +
+                        textBox2.Text + "','" +
                         textBox4.Text + "','" +
                         textBox5.Text + "')", conn);
                     cmd.ExecuteNonQuery();
@@ -141,8 +141,8 @@ namespace Aplikasi_Apotek
                     cmd = new MySqlCommand("update `tbl_user` set type_user='" +
                         comboBox1.Text + "',nama_user='" +
                         textBox1.Text + "',alamat='" +
-                        textBox2.Text + "',telpon='" +
-                        textBox3.Text + "',username='" +
+                        textBox3.Text + "',telpon='" +
+                        textBox2.Text + "',username='" +
                         textBox4.Text + "',password='" +
                         textBox5.Text + "' where id_user='" + textBox7.Text + "'", conn);
                     cmd.ExecuteNonQuery();
@@ -167,8 +167,8 @@ namespace Aplikasi_Apotek
             textBox7.Text = row.Cells[0].Value.ToString();
             comboBox1.Text = row.Cells[1].Value.ToString();
             textBox1.Text = row.Cells[2].Value.ToString();
-            textBox2.Text = row.Cells[3].Value.ToString();
-            textBox3.Text = row.Cells[4].Value.ToString();
+            textBox3.Text = row.Cells[3].Value.ToString();
+            textBox2.Text = row.Cells[4].Value.ToString();
             textBox4.Text = row.Cells[5].Value.ToString();
             textBox5.Text = row.Cells[6].Value.ToString();
         }
@@ -217,6 +217,11 @@ namespace Aplikasi_Apotek
         private void button4_Click(object sender, EventArgs e)
         {
             bersih();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
