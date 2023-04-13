@@ -32,3 +32,4 @@ D:\jelang\desktop\apotek\Aplikasi Apotek\Aplikasi Apotek\obj\Debug\Aplikasi Apot
 D:\jelang\desktop\apotek\Aplikasi Apotek\Aplikasi Apotek\obj\Debug\Aplikasi Apotek.csproj.CopyComplete
 D:\jelang\desktop\apotek\Aplikasi Apotek\Aplikasi Apotek\obj\Debug\Aplikasi Apotek.exe
 D:\jelang\desktop\apotek\Aplikasi Apotek\Aplikasi Apotek\obj\Debug\Aplikasi Apotek.pdb
+D:\jelang\desktop\apotek\Aplikasi Apotek\Aplikasi Apotek\obj\Debug\Aplikasi Apotek.csproj.SuggestedBindingRedirects.cache

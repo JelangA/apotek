@@ -278,6 +278,7 @@ namespace Aplikasi_Apotek
                    idUser + "')", conn);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Data Berhasil Di Simpan");
+                totalz = 0;
                 bersih();
             }
             catch (Exception x)
@@ -310,6 +311,10 @@ namespace Aplikasi_Apotek
                 textBox2.Enabled = false;
                 textBox4.Enabled = false;
                 textBox5.Enabled = false;
+
+                textBox2.Text = "";
+                textBox4.Text = "";
+                textBox5.Text = "";
             }
             else
             {
