@@ -71,6 +71,7 @@ namespace Aplikasi_Apotek
             // 
             this.textBox2.Location = new System.Drawing.Point(277, 218);
             this.textBox2.Name = "textBox2";
+            this.textBox2.PasswordChar = '*';
             this.textBox2.Size = new System.Drawing.Size(211, 20);
             this.textBox2.TabIndex = 0;
             // 
@@ -103,6 +104,7 @@ namespace Aplikasi_Apotek
             this.button1.TabIndex = 3;
             this.button1.Text = "Login";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -113,6 +115,7 @@ namespace Aplikasi_Apotek
             this.button2.TabIndex = 3;
             this.button2.Text = "Cansel";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label3
             // 
