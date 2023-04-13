@@ -30,9 +30,12 @@ namespace Aplikasi_Apotek
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button5 = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
@@ -56,9 +59,6 @@ namespace Aplikasi_Apotek
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.button5 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -96,6 +96,26 @@ namespace Aplikasi_Apotek
             this.panel1.Size = new System.Drawing.Size(700, 500);
             this.panel1.TabIndex = 2;
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(270, 248);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(78, 28);
+            this.button5.TabIndex = 8;
+            this.button5.Text = "Kosongkan";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Sitka Small", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(65, 136);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(157, 20);
+            this.dateTimePicker1.TabIndex = 7;
+            // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(183, 248);
@@ -125,6 +145,13 @@ namespace Aplikasi_Apotek
             this.button1.Text = "Simpan";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(545, 17);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(113, 20);
+            this.textBox6.TabIndex = 5;
             // 
             // textBox7
             // 
@@ -286,6 +313,7 @@ namespace Aplikasi_Apotek
             this.button4.TabIndex = 2;
             this.button4.Text = "LogOut";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // panel4
             // 
@@ -341,33 +369,6 @@ namespace Aplikasi_Apotek
             this.label9.Size = new System.Drawing.Size(131, 35);
             this.label9.TabIndex = 0;
             this.label9.Text = "Apoteker";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Sitka Small", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(65, 136);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(157, 20);
-            this.dateTimePicker1.TabIndex = 7;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(545, 17);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(113, 20);
-            this.textBox6.TabIndex = 5;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(270, 248);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(78, 28);
-            this.button5.TabIndex = 8;
-            this.button5.Text = "Kosongkan";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // FApoteker
             // 

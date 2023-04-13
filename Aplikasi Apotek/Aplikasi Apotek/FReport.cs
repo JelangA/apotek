@@ -63,18 +63,39 @@ namespace Aplikasi_Apotek
 
         private void button2_Click(object sender, EventArgs e)
         {
+            chartOmset.Series["Omset"].Points.Clear();
             MySqlConnection conn = koneksi.getKon();
             conn.Open();
             try
             {
                 ds = new DataSet();
-                cmd = new MySqlCommand("select tgl_transaksi, total_bayar from tbl_transaksi", conn);
+                cmd = new MySqlCommand("SELECT tgl_transaksi, total_bayar FROM tbl_transaksi WHERE (tgl_transaksi BETWEEN '" + dateTimePicker1.Value.ToString("yyyy-MM-dd") + "' AND '" + dateTimePicker2.Value.ToString("yyyy-MM-dd") + "')", conn);
                 rd = cmd.ExecuteReader();
                 while (rd.Read())
                 {
-                    chartOmset.Series["omset"].Points.AddXY(rd.GetString("tgl_transaksi"), rd.GetInt64("total_bayar"));
+                    chartOmset.Series["Omset"].Points.AddXY(rd.GetString("tgl_transaksi"), rd.GetInt64("total_bayar"));
                 }
                 
+            }
+            catch (Exception x)
+            {
+                MessageBox.Show("Data Gagal Di Tampilkan {{" + x.Message + "}}");
+            }
+            conn.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MySqlConnection conn = koneksi.getKon();
+            conn.Open();
+            try
+            {
+                ds = new DataSet();
+                cmd = new MySqlCommand("SELECT tgl_transaksi, total_bayar FROM tbl_transaksi WHERE (tgl_transaksi BETWEEN '" + dateTimePicker1.Value.ToString("yyyy-MM-dd") + "' AND '" + dateTimePicker2.Value.ToString("yyyy-MM-dd") + "')", conn);
+                da = new MySqlDataAdapter(cmd);
+                da.Fill(ds, "tbl_transaksi");
+                dataGridView1.DataSource = ds;
+                dataGridView1.DataMember = "tbl_transaksi";
             }
             catch (Exception x)
             {

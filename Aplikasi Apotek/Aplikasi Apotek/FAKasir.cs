@@ -31,12 +31,12 @@ namespace Aplikasi_Apotek
             {
                 MySqlConnection conn = koneksi.getKon();
                 conn.Open();
-                cmd = new MySqlCommand("select no_transaksi from tbl_ptransaksi order by no_transaksi desc", conn);
+                cmd = new MySqlCommand("select no_transaksi from tbl_transaksi order by no_transaksi desc", conn);
                 rd = cmd.ExecuteReader();
                 rd.Read();
                 if (rd.HasRows)
                 {
-                    string id = rd[0].ToString();
+                    string id = rd["no_transaksi"].ToString();
                     string angka = id.Substring(4, 4);
                     int num = Convert.ToInt32(angka) + 1;
                     string result = num.ToString();
@@ -56,14 +56,13 @@ namespace Aplikasi_Apotek
                     {
                         result = "" + result;
                     }
-
                     string tanggal = DateTime.Now.ToString("ddMM");
                     string result2 = tanggal + result;
                     return result2;
                 }
                 else
                 {
-                    string result = "001";
+                    string result = "0001";
                     string tanggal = DateTime.Now.ToString("ddMM");
                     string result2 = tanggal + result;
                     return result2;
@@ -108,21 +107,6 @@ namespace Aplikasi_Apotek
             }
         }
         
-        //void gettotal()
-        //{
-        //    string input = textBox8.Text;
-        //    if (int.TryParse(input, out int value))
-        //    {
-        //        // nilai dari input berhasil dikonversi menjadi integer
-        //        string textBoxValue = textBox9.Text;
-        //        int intValue = Int32.Parse(textBoxValue);
-        //    }
-        //    else
-        //    {
-        //        // nilai dari input tidak dapat dikonversi menjadi integer
-        //        MessageBox.Show("gagal konversi");
-        //    }
-        //}
         void Tampildata()
         {
             MySqlConnection conn = koneksi.getKon();
@@ -130,7 +114,7 @@ namespace Aplikasi_Apotek
             try
             {
                 ds = new DataSet();
-                cmd = new MySqlCommand("select * from tbl_ptransaksi", conn);
+                cmd = new MySqlCommand("select * from tbl_ptransaksi order by id_ptransaksi desc", conn);
                 da = new MySqlDataAdapter(cmd);
                 da.Fill(ds, "tbl_ptransaksi");
                 dataGridView1.DataSource = ds;
@@ -154,6 +138,7 @@ namespace Aplikasi_Apotek
             textBox7.Text = "";
             textBox8.Text = "";
             Tampildata();
+            label14.Text = Autoid();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -211,6 +196,8 @@ namespace Aplikasi_Apotek
         private void button8_Click(object sender, EventArgs e)
         {
             bersih();
+            labelTotal.Text = "Total";
+            labelKembali.Text = "Total Kembali";
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -285,7 +272,7 @@ namespace Aplikasi_Apotek
             {
                 cmd = new MySqlCommand("INSERT INTO `tbl_transaksi`(`no_transaksi`, `tgl_transaksi`, `nama_kasir`, `total_bayar`, `id_user`) VALUES ( '" + 
                    Autoid() + "','" + 
-                   DateTime.Now.ToString() + "','" +
+                   DateTime.Now.ToString("yyyy-MM-dd") + "','" +
                    namaUser +"','" +
                    totalz + "','" +
                    idUser + "')", conn);
@@ -308,6 +295,28 @@ namespace Aplikasi_Apotek
         private void button6_Click_1(object sender, EventArgs e)
         {
             labelKembali.Text = (Convert.ToInt64(textBox9.Text) - totalz).ToString();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new FLogin().Show();
+        }
+
+        private void textBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "Non Resep")
+            {
+                textBox2.Enabled = false;
+                textBox4.Enabled = false;
+                textBox5.Enabled = false;
+            }
+            else
+            {
+                textBox2.Enabled = true;
+                textBox4.Enabled = true;
+                textBox5.Enabled = true;
+            }
         }
     }
 }

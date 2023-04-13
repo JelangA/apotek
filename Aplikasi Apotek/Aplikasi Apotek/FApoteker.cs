@@ -28,11 +28,61 @@ namespace Aplikasi_Apotek
             dataGridView1.Columns[0].Visible = false;
         }
 
+        private string autoid()
+        {
+            try
+            {
+                MySqlConnection conn = koneksi.getKon();
+                conn.Open();
+                cmd = new MySqlCommand("select no_resep from tbl_resep order by no_resep desc", conn);
+                rd = cmd.ExecuteReader();
+                rd.Read();
+                if (rd.HasRows)
+                {
+                    string id = rd["no_resep"].ToString();
+                    string angka = id.Substring(1, 1);
+                    int num = Convert.ToInt32(angka) + 1;
+                    string result = num.ToString();
+                    if (result.Length == 1)
+                    {
+                        result = "000" + result;
+                    }
+                    else if (result.Length == 2)
+                    {
+                        result = "00" + result;
+                    }
+                    else if (result.Length == 3)
+                    {
+                        result = "0" + result;
+                    }
+                    else if (result.Length == 4)
+                    {
+                        result = "" + result;
+                    }
+                    string tanggal = "R";
+                    string result2 = tanggal + result;
+                    return result2;
+                }
+                else
+                {
+                    string result = "0001";
+                    string tanggal = "R";
+                    string result2 = tanggal + result;
+                    return result2;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return "";
+        }
+
 
 
         void bersih()
         {
-            textBox1.Text = "";
+            textBox1.Text = autoid() ;
             textBox2.Text = "";
             textBox3.Text = "";
             textBox4.Text = "";
@@ -194,6 +244,12 @@ namespace Aplikasi_Apotek
                 MessageBox.Show("Pencarian gagal {{" + x.Message + "}}");
             }
             conn.Close();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new FLogin().Show();
         }
     }
 }

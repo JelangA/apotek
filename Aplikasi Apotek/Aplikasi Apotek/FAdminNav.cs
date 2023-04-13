@@ -49,7 +49,7 @@ namespace Aplikasi_Apotek
             try
             {
                 ds = new DataSet();
-                cmd = new MySqlCommand("select * from tbl_log", conn);
+                cmd = new MySqlCommand("select * from tbl_log order by id_log desc", conn);
                 da = new MySqlDataAdapter(cmd);
                 da.Fill(ds, "tbl_log");
                 dataGridView1.DataSource = ds;
