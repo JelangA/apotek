@@ -57,27 +57,6 @@ namespace Aplikasi_Apotek
             conn.Close();
         }
 
-        //void TampilCmb()
-        //{
-        //    MySqlConnection conn = koneksi.getKon();
-        //    conn.Open();
-        //    try
-        //    {
-        //        ds = new DataSet();
-        //        cmd = new MySqlCommand("select {{Data}} from tbl_user", conn);
-        //        rd = cmd.ExecuteReader();
-        //        while(rd.Read()){
-        //            comboBox1.Items.Add(rd[0].ToString());
-        //        }
-        //    }
-        //    catch (Exception x)
-        //    {
-        //        MessageBox.Show("ComboBox Gagal Di Tambahkan {{" + x.Message + "}}");
-        //    }
-        //    rd.Close();
-        //    conn.Close();
-        //}
-
         private void FManageUser_Load(object sender, EventArgs e)
         {
             bersih();

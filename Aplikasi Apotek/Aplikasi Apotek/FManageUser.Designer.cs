@@ -291,7 +291,7 @@ namespace Aplikasi_Apotek
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
-            "Admin ",
+            "Admin",
             "Apoteker",
             "Kasir"});
             this.comboBox1.Location = new System.Drawing.Point(99, 117);
