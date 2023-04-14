@@ -18,9 +18,12 @@ namespace Aplikasi_Apotek
         private MySqlDataAdapter da;
         private MySqlDataReader rd;
         Koneksi koneksi = new Koneksi();
+
+        public static FApoteker instance;
         public FApoteker()
         {
             InitializeComponent();
+            instance = this;
         }
         private void FResep_Load(object sender, EventArgs e)
         {
@@ -128,7 +131,7 @@ namespace Aplikasi_Apotek
                 {
                     cmd = new MySqlCommand("insert into `tbl_resep` (`no_resep`, `tgl_resep`, `nama_pasien`, `nama_dokter`, `obat_dibeli`, `jumlah_obatresep`) values ('" +
                         textBox1.Text + "','" +
-                        dateTimePicker1.Value.ToString("dd/MM/yyyy") + "','" +
+                        dateTimePicker1.Value.ToString("yyyy-MM-dd") + "','" +
                         textBox2.Text + "','" +
                         textBox3.Text + "','" +
                         textBox4.Text + "','" +
@@ -250,6 +253,11 @@ namespace Aplikasi_Apotek
         {
             this.Hide();
             new FLogin().Show();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            new ListObat("resep").Show();
         }
     }
 }

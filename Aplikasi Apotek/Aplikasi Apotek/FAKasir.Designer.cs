@@ -37,6 +37,9 @@ namespace Aplikasi_Apotek
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button9 = new System.Windows.Forms.Button();
+            this.Resepbttn = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.DateTimePicker();
             this.textBox1 = new System.Windows.Forms.ComboBox();
@@ -58,6 +61,7 @@ namespace Aplikasi_Apotek
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
@@ -66,8 +70,6 @@ namespace Aplikasi_Apotek
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -154,6 +156,8 @@ namespace Aplikasi_Apotek
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button9);
+            this.panel1.Controls.Add(this.Resepbttn);
             this.panel1.Controls.Add(this.label14);
             this.panel1.Controls.Add(this.textBox10);
             this.panel1.Controls.Add(this.textBox3);
@@ -190,6 +194,36 @@ namespace Aplikasi_Apotek
             this.panel1.Size = new System.Drawing.Size(700, 500);
             this.panel1.TabIndex = 5;
             // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(587, 70);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(75, 23);
+            this.button9.TabIndex = 13;
+            this.button9.Text = "Piih Obat";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // Resepbttn
+            // 
+            this.Resepbttn.Enabled = false;
+            this.Resepbttn.Location = new System.Drawing.Point(222, 70);
+            this.Resepbttn.Name = "Resepbttn";
+            this.Resepbttn.Size = new System.Drawing.Size(75, 23);
+            this.Resepbttn.TabIndex = 13;
+            this.Resepbttn.Text = "No Resep";
+            this.Resepbttn.UseVisualStyleBackColor = true;
+            this.Resepbttn.Click += new System.EventHandler(this.button2_Click_1);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(587, 17);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(41, 13);
+            this.label14.TabIndex = 12;
+            this.label14.Text = "label14";
+            // 
             // textBox10
             // 
             this.textBox10.Location = new System.Drawing.Point(481, 14);
@@ -200,6 +234,7 @@ namespace Aplikasi_Apotek
             // textBox3
             // 
             this.textBox3.CustomFormat = "dd/MM/yyyy";
+            this.textBox3.Enabled = false;
             this.textBox3.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.textBox3.Location = new System.Drawing.Point(129, 98);
             this.textBox3.Name = "textBox3";
@@ -294,6 +329,7 @@ namespace Aplikasi_Apotek
             // 
             // textBox7
             // 
+            this.textBox7.Enabled = false;
             this.textBox7.Location = new System.Drawing.Point(481, 100);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(199, 20);
@@ -301,17 +337,21 @@ namespace Aplikasi_Apotek
             // 
             // textBox5
             // 
+            this.textBox5.Enabled = false;
             this.textBox5.Location = new System.Drawing.Point(481, 48);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(199, 20);
             this.textBox5.TabIndex = 5;
+            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // textBox6
             // 
+            this.textBox6.Enabled = false;
             this.textBox6.Location = new System.Drawing.Point(481, 72);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(199, 20);
+            this.textBox6.Size = new System.Drawing.Size(100, 20);
             this.textBox6.TabIndex = 5;
+            this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
             // labelKembali
             // 
@@ -357,6 +397,7 @@ namespace Aplikasi_Apotek
             // 
             // textBox4
             // 
+            this.textBox4.Enabled = false;
             this.textBox4.Location = new System.Drawing.Point(129, 124);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(199, 20);
@@ -381,6 +422,14 @@ namespace Aplikasi_Apotek
             this.label8.Size = new System.Drawing.Size(83, 19);
             this.label8.TabIndex = 2;
             this.label8.Text = "Nama Obat";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Enabled = false;
+            this.textBox2.Location = new System.Drawing.Point(129, 72);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(87, 20);
+            this.textBox2.TabIndex = 5;
             // 
             // label6
             // 
@@ -460,22 +509,6 @@ namespace Aplikasi_Apotek
             this.label1.TabIndex = 0;
             this.label1.Text = "Kelola Transaksi";
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(587, 17);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(41, 13);
-            this.label14.TabIndex = 12;
-            this.label14.Text = "label14";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(129, 72);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(199, 20);
-            this.textBox2.TabIndex = 5;
-            // 
             // FAKasir
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -509,10 +542,6 @@ namespace Aplikasi_Apotek
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
@@ -531,12 +560,18 @@ namespace Aplikasi_Apotek
         private System.Windows.Forms.Label labelKembali;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label labelTotal;
-        private System.Windows.Forms.DateTimePicker textBox3;
         private System.Windows.Forms.ComboBox textBox1;
-        private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button Resepbttn;
+        public System.Windows.Forms.TextBox textBox7;
+        public System.Windows.Forms.TextBox textBox6;
+        public System.Windows.Forms.TextBox textBox5;
+        public System.Windows.Forms.TextBox textBox4;
+        public System.Windows.Forms.DateTimePicker textBox3;
+        public System.Windows.Forms.TextBox textBox2;
+        public System.Windows.Forms.TextBox textBox8;
     }
 }

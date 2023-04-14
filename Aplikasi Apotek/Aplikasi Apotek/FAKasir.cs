@@ -75,10 +75,11 @@ namespace Aplikasi_Apotek
             return "";
         }
 
-
+        public static FAKasir instance;
         public FAKasir()
         {
             InitializeComponent();
+            instance = this;
         }
 
         private void FAKasir_Load(object sender, EventArgs e)
@@ -139,6 +140,11 @@ namespace Aplikasi_Apotek
             textBox8.Text = "";
             Tampildata();
             label14.Text = Autoid();
+        }
+
+        public static void getObat(String namaObat, String hargaObat)
+        {
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -302,6 +308,7 @@ namespace Aplikasi_Apotek
         {
             this.Hide();
             new FLogin().Show();
+
         }
 
         private void textBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -311,16 +318,53 @@ namespace Aplikasi_Apotek
                 textBox2.Enabled = false;
                 textBox4.Enabled = false;
                 textBox5.Enabled = false;
+                textBox8.Enabled = true;
 
-                textBox2.Text = "";
-                textBox4.Text = "";
-                textBox5.Text = "";
+                bersih();
             }
-            else
+            else if (textBox1.Text == "Resep")
             {
-                textBox2.Enabled = true;
-                textBox4.Enabled = true;
-                textBox5.Enabled = true;
+                Resepbttn.Enabled = true;
+                textBox8.Enabled = false;
+                bersih();
+            }
+           
+                
+           
+        }
+
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            new ListObat("kasir").Show();
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            new ListResep().Show();
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+            MySqlConnection conn = koneksi.getKon();
+            conn.Open();
+            try
+            {
+                cmd = new MySqlCommand("select harga from tbl_obat where nama_obat ='" + textBox6.Text + "'", conn);
+                rd = cmd.ExecuteReader();
+                while (rd.Read())
+                {
+                    textBox7.Text = rd[0].ToString();
+                }
+            }
+            catch (Exception x)
+            {
+                MessageBox.Show("Auto id gagal {{ " + x.Message + " }} ");
             }
         }
     }
